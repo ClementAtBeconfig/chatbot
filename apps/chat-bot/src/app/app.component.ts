@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { NxWelcomeComponent } from './nx-welcome.component';
-
+import { ChatBotTestPart } from 'apps/libs/library-chatbot/src/lib/part/chatBot/chatBotTest.part';
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent],
+  imports: [ChatBotTestPart],
   selector: 'chat-bot-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
