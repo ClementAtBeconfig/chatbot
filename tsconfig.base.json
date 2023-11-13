@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@beconfigTest/chatbot": ["apps/libs/library-chatbot/src/index.ts"]
+      "@beconfig/chatbot": ["apps/libs/library-chatbot/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

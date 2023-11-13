@@ -1,1 +1,1 @@
-export * from './lib/library-chatbot.module';
+export * from './lib/part/chatbot/chatbot-test.part';

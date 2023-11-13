@@ -1,5 +1,5 @@
 {
-  "name": "@beconfigTest/chatbot",
+  "name": "@beconfig/chatbot",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^16.2.0",

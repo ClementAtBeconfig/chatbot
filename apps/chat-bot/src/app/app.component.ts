@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ChatBotTestPart } from 'apps/libs/library-chatbot/src/lib/part/chatBot/chatBotTest.part';
+import { ChatBotTestPart } from '@beconfig/chatbot';
+
 @Component({
   standalone: true,
   imports: [ChatBotTestPart],

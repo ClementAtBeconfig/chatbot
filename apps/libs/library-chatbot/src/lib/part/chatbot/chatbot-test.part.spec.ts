@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ChatBotTestPart } from './chatBotTest.part';
+import { ChatBotTestPart } from './chatbot-test.part';
 
 describe('ChatBotTestPart', () => {
   let component: ChatBotTestPart;

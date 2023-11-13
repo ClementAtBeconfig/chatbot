@@ -3,26 +3,37 @@
     <button class="close" id="close" (click)="closeChat()">X</button>
   </div>
   <div class="chat-title">
-    <h1>BeConfig Bot</h1>
     <figure class="avatar">
       <img
         src="https://media.licdn.com/dms/image/C4E0BAQGfrxVJY9g0iA/company-logo_200_200/0/1519890919244?e=2147483647&v=beta&t=Q15MJnQD8YzqwsiHTOPsGRP-hJTZaHQiW44QYP2N4hI" />
-    </figure>
+    </figure> 
+    <h1>BeConfig Bot</h1>
   </div>
+<div class="discussion">
   <div class="messages">
-    <div class="messages-content">
-      <div class="message">Bonjour , Comment puis-je vous aidez ?</div>
-      <img class="avatarChat"
-        src="https://media.licdn.com/dms/image/C4E0BAQGfrxVJY9g0iA/company-logo_200_200/0/1519890919244?e=2147483647&v=beta&t=Q15MJnQD8YzqwsiHTOPsGRP-hJTZaHQiW44QYP2N4hI" />
-    </div>
+      <div class="message">
+        Bonjour 👋, je suis BeConfig Bot ! Un chatbot conçu pour, vous aidez. 
+        Ici, vous pouvez me demander ce que vous voulez !
+      </div>
+        <div class="message">
+        Comment puis-je vous aidez ?
+      </div>
+      
+        <div class="messages-user">
+           
+      </div>
+      
   </div>
+</div>
+<div id="typing-loader" class="typing-loader">BeConfig Bot est train d'écrire...</div>
   <div class="message-box">
     <textarea type="text" class="message-input" placeholder="Écrire un message..." id="messageContainer"></textarea>
     <button type="submit" class="message-submit" (click)="messageSubmit()">Envoyé</button>
   </div>
 </div>
-<div>
-  <button class="displayBot" (click)="displayBot()">
+<div class="btnContainer">
+  <button id="displayBot" class="displayBot" (click)="displayBot()">
+    <span id="notif" class="notif">1</span>
     <svg fill="#000000" width="5ch" height="5ch" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg"
       class="svg">
       <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
