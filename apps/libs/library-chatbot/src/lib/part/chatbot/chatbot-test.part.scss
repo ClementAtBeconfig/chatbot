@@ -188,8 +188,8 @@ Mixins
   visibility: hidden;
   overflow: hidden;
   word-wrap: break-word;
+  display: -webkit-inline-box;
 }
-
 /*--------------------
   Messages
   --------------------*/
@@ -207,6 +207,7 @@ Mixins
   max-width: 70%;
   box-sizing: border-box;
   animation: smooth-appear 2s ease forwards;
+  display: -webkit-inline-box;
 
   & .messages-content {
     position: absolute;
@@ -364,10 +365,8 @@ Mixins
 @media screen and (max-width: 768px) {
   .typing-loader {
     bottom: 10%;
-    /* Ajustez la position en conséquence */
     font-size: 12px;
-    /* Ajustez la taille de la police en conséquence */
-    /* Ajoutez d'autres ajustements de style si nécessaire */
+    
   }
 }
 
@@ -383,4 +382,6 @@ Mixins
   100% {
     opacity: 1;
   }
+  
 }
+
