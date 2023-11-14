@@ -31,22 +31,40 @@ export class ChatBotTestPart {
     const texte = message.value.trim();
     message.value='';
     if (texte !== '') {
+
       const divMessageUtilisateur = document.createElement('div');
+
+      
       divMessageUtilisateur.className = 'messages-user';
       divMessageUtilisateur.textContent = texte;
-      const contenuMessages = document.querySelector('.messages-user')as HTMLInputElement;
+      divMessageUtilisateur.setAttribute("style" , "padding: 0.5rem 2rem 0.7rem;border-radius: 10px 10px 10px 0;background:  #3764ed;margin-top: 1rem;font-size: medium;position: absolute;right: 5%;color: #fff;font-family: Arial, Helvetica, sans-serif;width: auto;max-width: 70%;box-sizing: border-box;");
+
+      const contenuMessages = document.querySelector('.discussion')as HTMLInputElement;
       contenuMessages.style.visibility="visible";
+      
       contenuMessages.appendChild(divMessageUtilisateur);
       const typingBot=document.getElementById('typing-loader') as HTMLInputElement;
+      this.chatBot(texte);
       typingBot.style.visibility="visible"
       setTimeout(() => {
         typingBot.style.visibility="hidden"
       }, 10000);
+ 
     }
-    
+  }
+  chatBot(texte:string){
+    if(texte == "bonjour" || texte == "Bonjour" || texte == "salut" || texte== "Salut"){
+      const botMessage = document.createElement('div');
+      botMessage.className = "messages";
+      botMessage.setAttribute("style" , "padding: 0.5rem 2rem 0.7rem;border-radius: 10px 10px 10px 0;background: rgba(0, 0, 0, 0.3);margin-top: 1rem;font-size: medium;position: relative;left: 5%;color: #fff;font-family: Arial, Helvetica, sans-serif;width: auto;max-width: 70%;box-sizing: border-box;");
+      botMessage.textContent = "Bonjour , comment allez-vous ?";
+      const contenuMessages = document.querySelector('.discussion')as HTMLElement;
+      contenuMessages.appendChild(botMessage);
 
+    }
 
   }
+  
 
   
 }

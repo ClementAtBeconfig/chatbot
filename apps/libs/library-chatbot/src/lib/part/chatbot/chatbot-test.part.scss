@@ -72,7 +72,30 @@ Mixins
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff
+  color: #fff;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+
+  80% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /*--------------------
@@ -80,9 +103,9 @@ Mixins
   --------------------*/
 .chat {
   @include center;
-  width: 50ch;
+  width: 70ch;
   height: 90vh;
-  max-height: 500px;
+  max-height: 90vh;
   z-index: 2;
   overflow: hidden;
   background: rgba(0, 0, 0, .5);
@@ -91,7 +114,13 @@ Mixins
   justify-content: space-between;
   flex-direction: column;
   display: block;
+}
 
+@media screen and (max-width: 768px) {
+  .chat {
+    width: 90%;
+    border-radius: 2ch;
+  }
 }
 
 /*--------------------
@@ -108,7 +137,7 @@ Mixins
     font-weight: normal;
     font-size: 2ch;
     font-family: Arial, Helvetica, sans-serif;
-    margin-top: 1ch;
+    margin-top: 1.7ch;
   }
 
   h2 {
@@ -125,7 +154,7 @@ Mixins
     height: 7ch;
     overflow: hidden;
     margin: auto;
-    top: 6%;
+    top: 8%;
 
 
     img {
@@ -142,32 +171,42 @@ Mixins
 }
 
 
-.messages-user{
-  padding: 0.7rem 0.5rem 0.5rem; /* Changer l'ordre des valeurs */
-  border-radius: 10px 10px 0 10px; /* Changer l'ordre des valeurs */
-  background:  #3764ed;
-  margin-bottom: 1rem; /* Utiliser margin-bottom à la place de margin-top */
-  font-size: 1.5ch;
-  position:absolute;
+.messages-user {
+  padding: 0.7rem 0.5rem 0.5rem;
+  border-radius: 10px 10px 0 10px;
+  background: #3764ed;
+  margin-bottom: 1rem;
+  position: absolute;
   text-align: right;
-  padding-right: 1.7ch;
   right: 5%;
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
   width: auto;
-  max-width: 70%; 
-  box-sizing: border-box; 
-  visibility:hidden;
+  max-width: 70%;
+  box-sizing: border-box;
+  visibility: hidden;
+  overflow: hidden;
+  word-wrap: break-word;
 }
 
 /*--------------------
   Messages
   --------------------*/
 .messages {
-  flex: 1 1 auto;
-  color: rgba(255, 255, 255, .5);
+  padding: 0.5rem 2rem 0.7rem;
+  border-radius: 10px 10px 10px 0;
+  background: rgba(0, 0, 0, 0.3);
+  margin-top: 1rem;
+  font-size: medium;
   position: relative;
-  width: 100%;
+  left: 5%;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  width: auto;
+  max-width: 70%;
+  box-sizing: border-box;
+  animation: smooth-appear 2s ease forwards;
 
   & .messages-content {
     position: absolute;
@@ -182,48 +221,39 @@ Mixins
 
   }
 
-  .message {
-    padding: 0.5rem 2rem 0.7rem;
-    border-radius: 10px 10px 10px 0;
-    background: rgba(0, 0, 0, 0.3);
-    margin-top: 1rem;
-    font-size: 1.5ch;
-    position: relative;
-    left: 5%;
-    color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-    width: auto;
-    max-width: 70%; 
-    box-sizing: border-box; 
-    animation: smooth-appear 2s ease forwards;
+  
+   
+
     @keyframes smooth-appear {
-      
-        0% {
-          opacity: 0;
-          transform: translateY(80%);
-        }
-        20% {
-          opacity: 0;
-        }
-        50% {
-          opacity: 1;
-          transform: translateY(0%);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0%);
-        
+
+      0% {
+        opacity: 0;
+        transform: translateY(80%);
+      }
+
+      20% {
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0%);
+
       }
     }
 
-  
+
 
     img {
       width: 100%;
       height: auto;
     }
-  }
-
+  
   &:last-child {
     margin-bottom: 30px;
   }
@@ -266,7 +296,7 @@ Mixins
 
 .discussion {
   overflow-y: scroll;
-  height: 60%;
+  height: 72%;
 }
 
 /*--------------------
@@ -292,6 +322,7 @@ Mixins
     padding-right: 20px;
     width: 50ch;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
 
   }
 
@@ -299,7 +330,8 @@ Mixins
     position: absolute;
     font-family: Arial, Helvetica, sans-serif;
     z-index: 1;
-    top: 9px;
+    top: 30%;
+    bottom: 30%;
     right: 10px;
     color: #fff;
     border: none;
@@ -317,15 +349,38 @@ Mixins
     }
   }
 }
-.typing-loader{
+
+.typing-loader {
+  position: fixed;
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   padding-left: 0.2vw;
-  animation: clignoter 0.8s infinite ;
+  bottom: 14%;
+  animation: clignoter 0.8s infinite;
   visibility: hidden;
 }
+
+/* Media query pour les écrans de taille moyenne */
+@media screen and (max-width: 768px) {
+  .typing-loader {
+    bottom: 10%;
+    /* Ajustez la position en conséquence */
+    font-size: 12px;
+    /* Ajustez la taille de la police en conséquence */
+    /* Ajoutez d'autres ajustements de style si nécessaire */
+  }
+}
+
 @keyframes clignoter {
-  0%   { opacity:1; }
-  40%   {opacity:0; }
-  100% { opacity:1; }
+  0% {
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
