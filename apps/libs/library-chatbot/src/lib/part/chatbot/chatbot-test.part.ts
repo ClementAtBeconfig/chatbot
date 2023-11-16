@@ -8,7 +8,8 @@ import { Component } from '@angular/core';
 })
 // eslint-disable-next-line @angular-eslint/component-class-suffix
 export class ChatBotTestPart {
-  static API_KEY = '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';
+  static API_KEY = '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';
+  
   displayBot() {
     const chat = document.getElementById('chat') as HTMLInputElement;
     chat.style.display = 'block';
@@ -52,22 +53,22 @@ export class ChatBotTestPart {
       contenuMessages.appendChild(divMessageUtilisateur);
       const typingBot = document.getElementById(
         'typing-loader'
-      ) as HTMLInputElement;
+      ) as HTMLInputElement;  
       typingBot.style.visibility = 'visible';
-      this.generateReponse(texte).then(data=>{
-        this.chatBot(data);
+      this.generateReponse(texte).then((data:any ) =>{
+        const content = data.choices[0].message.content;
+        setTimeout(() => {
+        this.chatBot(content)
+        typingBot.style.visibility = 'hidden';
+      }, 1000);
       })
-
-      // setTimeout(() => {
-      //   this.chatBot(texte);
-      //   typingBot.style.visibility = 'hidden';
-      // }, 3000);
     }
   }
 
   chatBot(texte: string) {
     const botMessage = document.createElement('div');
     botMessage.className = 'messages';
+    botMessage.textContent=texte;
     botMessage.setAttribute(
       'style',
       'display: block;padding: 0.5rem 2rem 0.7rem;border-radius: 10px 10px 10px 0;background: rgba(0, 0, 0, 0.3);margin-top: 1rem;font-size: medium;position: relative;left: 5%;color: #fff;font-family: Arial, Helvetica, sans-serif;width: auto;max-width: 70%;box-sizing: border-box;'
@@ -79,7 +80,7 @@ export class ChatBotTestPart {
     contenuMessages.appendChild(botMessage);
   }
 
-  public generateReponse(texte: string): Promise<string> {
+  public generateReponse(texte: string): Promise<object> {
     const API_URL = 'https://api.openai.com/v1/chat/completions';
     const requestOptions = {
       method: 'POST',
